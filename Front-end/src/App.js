@@ -1,9 +1,14 @@
 import { Button } from "antd";
+import Header from "./Components/Header";
+import ShortURLBox from "./Components/ShortURLBox";
+import TextInputBox from "./Components/TextInputBox";
 
 function App() {
   return (
     <div>
-      <Button type="dashed">Text</Button>
+      <Header />
+      <TextInputBox />
+      <ShortURLBox />
     </div>
   );
 }
