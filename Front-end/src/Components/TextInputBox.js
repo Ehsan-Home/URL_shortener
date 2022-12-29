@@ -7,7 +7,7 @@ const TextInputBox = () => {
   };
   return (
     <Row justify="center">
-      <Col span={12}>
+      <Col xl={12} lg={12} md={18} sm={24} xs={24}>
         <Card>
           <Form form={form} layout="vertical" onFinish={onFinish}>
             <Form.Item
