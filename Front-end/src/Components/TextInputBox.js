@@ -1,4 +1,6 @@
-import { Button, Card, Col, Divider, Form, Input, Row } from "antd";
+import { Button, Card, Col, Divider, Form, Input, Typography } from "antd";
+
+const { Title } = Typography;
 
 const TextInputBox = () => {
   const [form] = Form.useForm();
@@ -7,6 +9,7 @@ const TextInputBox = () => {
   };
   return (
     <Card>
+      <Title level={5}>Long URL</Title>
       <Form form={form} layout="vertical" onFinish={onFinish}>
         <Form.Item
           name="url"
