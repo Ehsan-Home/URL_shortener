@@ -6,35 +6,31 @@ const TextInputBox = () => {
     console.log("finished tapped");
   };
   return (
-    <Row justify="center">
-      <Col xl={12} lg={12} md={18} sm={24} xs={24}>
-        <Card>
-          <Form form={form} layout="vertical" onFinish={onFinish}>
-            <Form.Item
-              name="url"
-              rules={[
-                {
-                  required: true,
-                  message: "Please enter URL",
-                },
-              ]}
-            >
-              <Input.Group compact>
-                <Input
-                  placeholder="Enter your URL"
-                  style={{
-                    width: "calc(100% - 100px)",
-                  }}
-                />
-                <Button type="primary" htmlType="submit">
-                  Shorten
-                </Button>
-              </Input.Group>
-            </Form.Item>
-          </Form>
-        </Card>
-      </Col>
-    </Row>
+    <Card>
+      <Form form={form} layout="vertical" onFinish={onFinish}>
+        <Form.Item
+          name="url"
+          rules={[
+            {
+              required: true,
+              message: "Please enter URL",
+            },
+          ]}
+        >
+          <Input.Group compact>
+            <Input
+              placeholder="Enter your URL"
+              style={{
+                width: "calc(100% - 100px)",
+              }}
+            />
+            <Button type="primary" htmlType="submit">
+              Shorten
+            </Button>
+          </Input.Group>
+        </Form.Item>
+      </Form>
+    </Card>
   );
 };
 
