@@ -6,6 +6,7 @@ const TextInputBox = () => {
   const [form] = Form.useForm();
   const onFinish = () => {
     console.log("finished tapped");
+    console.log(form);
   };
   return (
     <Card>
@@ -20,17 +21,12 @@ const TextInputBox = () => {
             },
           ]}
         >
-          <Input.Group compact>
-            <Input
-              placeholder="Enter your URL"
-              style={{
-                width: "calc(100% - 100px)",
-              }}
-            />
-            <Button type="primary" htmlType="submit">
-              Shorten
-            </Button>
-          </Input.Group>
+          <Input placeholder="Enter your URL" />
+        </Form.Item>
+        <Form.Item className="center">
+          <Button type="primary" htmlType="submit">
+            Shorten
+          </Button>
         </Form.Item>
       </Form>
     </Card>
