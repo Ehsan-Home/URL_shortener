@@ -11,3 +11,4 @@ from rest_framework.decorators import api_view
 @api_view(['POST'])
 def url(request):
     print("in url request")
+    return Response(None, status=status.HTTP_201_CREATED)
