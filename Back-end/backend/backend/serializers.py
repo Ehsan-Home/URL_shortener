@@ -6,4 +6,4 @@ from .models import URL
 class URLSerializer(serializers.ModelSerializer):
     class Meta:
         model = URL
-        fields = ['long_url', 'unique_key']
+        fields = ['long_url']
