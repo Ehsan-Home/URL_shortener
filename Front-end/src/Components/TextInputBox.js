@@ -3,12 +3,12 @@ import URLRequest from "../Network/URLRequest";
 
 const { Title } = Typography;
 
-const TextInputBox = () => {
+const TextInputBox = ({ setShortURL }) => {
   const [form] = Form.useForm();
   const onFinish = (values) => {
     console.log("finished tapped");
     console.log(values);
-    URLRequest(values);
+    URLRequest(values, setShortURL);
   };
 
   return (

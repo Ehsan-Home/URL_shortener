@@ -3,10 +3,12 @@ import "../Styles/Styles.css";
 
 const { Text, Title } = Typography;
 
-const ShortURLBox = () => {
+const ShortURLBox = ({ shortURL }) => {
+  console.log("unique key in shortURLBox", shortURL);
+
   const [messageApi, contextHolder] = message.useMessage();
   const onCopyClicked = () => {
-    navigator.clipboard.writeText("Shorten URL2");
+    navigator.clipboard.writeText(shortURL);
     messageApi.info("URL copied");
   };
   return (
@@ -16,7 +18,7 @@ const ShortURLBox = () => {
         <Title level={5}>Shorten URL</Title>
         <Input.Group compact>
           <Input
-            defaultValue={"localhost:3000/tw392"}
+            value={shortURL}
             style={{
               width: "calc(100% - 80px)",
             }}
