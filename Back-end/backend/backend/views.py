@@ -37,4 +37,3 @@ def url(request):
 
 def PKToBase62(newObjPK):
     return base62.encode(newObjPK)
-    # return f'{newObjPK}##'
