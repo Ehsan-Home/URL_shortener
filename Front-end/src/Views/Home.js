@@ -16,9 +16,11 @@ const Home = () => {
         <Col xs={24} sm={24} md={18} lg={20} xl={20}>
           <TextInputBox setShortURL={setShortURL} />
         </Col>
-        <Col xs={24} sm={24} md={18} lg={20} xl={20}>
-          <ShortURLBox shortURL={shortURL} />
-        </Col>
+        {shortURL && (
+          <Col xs={24} sm={24} md={18} lg={20} xl={20}>
+            <ShortURLBox shortURL={shortURL} />
+          </Col>
+        )}
         <Col xs={24} sm={24} md={18} lg={20} xl={20}>
           <Notes />
         </Col>
