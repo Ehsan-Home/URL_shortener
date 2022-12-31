@@ -1,3 +1,4 @@
+import { Col, Row, Spin } from "antd";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import fetchLongURL from "../Network/FetchLongURL";
@@ -16,7 +17,11 @@ const RedirectToLongURL = () => {
     }
   }, [longURL]);
 
-  return <div>Redirect to Long URL with {key}</div>;
+  return (
+    <Row justify="center">
+      <Spin tip="Redirecting" size="large" />
+    </Row>
+  );
 };
 
 export default RedirectToLongURL;
