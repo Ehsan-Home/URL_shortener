@@ -20,5 +20,5 @@ from .views import url, getShortURL
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('url/', url),
-    path('shorturl/<str:short_url_key>', getShortURL)
+    path('shorturl/<str:short_url_key>/', getShortURL)
 ]
