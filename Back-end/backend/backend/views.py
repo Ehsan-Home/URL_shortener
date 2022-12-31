@@ -10,29 +10,27 @@ from rest_framework.decorators import api_view
 @csrf_exempt
 @api_view(['POST'])
 def url(request):
-    lastObj = URL.objects.last()
-
-    newObjPK = lastObj.pk + 1
-    newObjUniquKey = PKToBase62(newObjPK)
     newObjURL = request.data['url']
-    newObjDict = {'id': newObjPK, 'long_url': newObjURL,
-                  'unique_key': newObjUniquKey}
 
-    urlSerializer = URLSerializer(data=newObjDict)
-    if urlSerializer.is_valid():
-        urlSerializer.save()
-        return Response(None, status=status.HTTP_201_CREATED)
+    if URL.objects.filter(long_url=newObjURL).exists():
+        obj = URL.objects.get(long_url=newObjURL)
+        serialized_data = URLSerializer(obj)
+        return Response(serialized_data.data, status=status.HTTP_201_CREATED)
     else:
-        print("is not valid")
-        print(urlSerializer.error_messages)
+        lastObj = URL.objects.last()
 
-    # print("new obj", newObjPK, newObjUniquKey, newObjURL)
+        newObjPK = lastObj.pk + 1
+        newObjUniquKey = PKToBase62(newObjPK)
 
-    # URLObj = URL.objects.get_or_create(
-    #     long_url=request.data.url, unique_key="key")
-    # return Response(URLObj, status=status.HTTP_201_CREATED)
+        newObjDict = {'id': newObjPK, 'long_url': newObjURL,
+                      'unique_key': newObjUniquKey}
 
-    return Response(None, status=status.HTTP_201_CREATED)
+        urlSerializer = URLSerializer(data=newObjDict)
+        if urlSerializer.is_valid():
+            urlSerializer.save()
+            return Response(urlSerializer.data, status=status.HTTP_201_CREATED)
+        else:
+            print(urlSerializer.error_messages)
 
 
 def PKToBase62(newObjPK):
