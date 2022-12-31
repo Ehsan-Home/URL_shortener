@@ -15,9 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from .views import url
+from .views import url, getShortURL
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('url/', url)
+    path('url/', url),
+    path('shorturl/<str:short_url_key>', getShortURL)
 ]

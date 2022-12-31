@@ -5,6 +5,7 @@ from rest_framework.response import Response
 from rest_framework import status
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.decorators import api_view
+from django.shortcuts import get_object_or_404
 import base62
 
 
@@ -31,7 +32,21 @@ def url(request):
             urlSerializer.save()
             return Response(urlSerializer.data, status=status.HTTP_201_CREATED)
         else:
-            return Response(None, status=status.HTTP_400_BAD_REQUEST)
+            return Response(urlSerializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+@csrf_exempt
+@api_view(['GET'])
+def getShortURL(request, short_url_key):
+    print("in get Short URL")
+    print('short url key', short_url_key)
+    try:
+        obj = URL.objects.get(unique_key=short_url_key)
+    except URL.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+
+    urlSerializer = URLSerializer(obj)
+    return Response(urlSerializer.data, status=status.HTTP_200_OK)
 
 
 def PKToBase62(newObjPK):
