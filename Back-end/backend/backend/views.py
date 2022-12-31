@@ -5,7 +5,6 @@ from rest_framework.response import Response
 from rest_framework import status
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.decorators import api_view
-from django.shortcuts import get_object_or_404
 import base62
 
 
@@ -38,8 +37,6 @@ def url(request):
 @csrf_exempt
 @api_view(['GET'])
 def getShortURL(request, short_url_key):
-    print("in get Short URL")
-    print('short url key', short_url_key)
     try:
         obj = URL.objects.get(unique_key=short_url_key)
     except URL.DoesNotExist:
