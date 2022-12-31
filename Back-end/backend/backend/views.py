@@ -16,12 +16,11 @@ def url(request):
     if URL.objects.filter(long_url=newObjURL).exists():
         obj = URL.objects.get(long_url=newObjURL)
         serialized_data = URLSerializer(obj)
-        return Response(serialized_data.data, status=status.HTTP_201_CREATED)
+        return Response(serialized_data.data, status=status.HTTP_202_ACCEPTED)
     else:
         lastObj = URL.objects.last()
 
         newObjPK = lastObj.pk + 1
-        # newObjUniquKey = base62_encode(newObjPK)
         newObjUniquKey = PKToBase62(newObjPK)
 
         newObjDict = {'id': newObjPK, 'long_url': newObjURL,
@@ -32,7 +31,7 @@ def url(request):
             urlSerializer.save()
             return Response(urlSerializer.data, status=status.HTTP_201_CREATED)
         else:
-            print(urlSerializer.error_messages)
+            return Response(None, status=status.HTTP_400_BAD_REQUEST)
 
 
 def PKToBase62(newObjPK):
