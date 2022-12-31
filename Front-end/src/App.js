@@ -7,7 +7,7 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/uni" element={<RedirectToLongURL />} />
+      <Route path="/:key" element={<RedirectToLongURL />} />
     </Routes>
   );
 }

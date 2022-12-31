@@ -1,5 +1,14 @@
+import { useEffect } from "react";
+import { useParams } from "react-router-dom";
+
 const RedirectToLongURL = () => {
-  return <div>Redirect to Long URL</div>;
+  const { key } = useParams();
+
+  useEffect(() => {
+    console.log("key", key);
+  }, []);
+
+  return <div>Redirect to Long URL with {key}</div>;
 };
 
 export default RedirectToLongURL;
