@@ -5,6 +5,7 @@ from rest_framework.response import Response
 from rest_framework import status
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.decorators import api_view
+import base62
 
 
 @csrf_exempt
@@ -20,6 +21,7 @@ def url(request):
         lastObj = URL.objects.last()
 
         newObjPK = lastObj.pk + 1
+        # newObjUniquKey = base62_encode(newObjPK)
         newObjUniquKey = PKToBase62(newObjPK)
 
         newObjDict = {'id': newObjPK, 'long_url': newObjURL,
@@ -34,4 +36,5 @@ def url(request):
 
 
 def PKToBase62(newObjPK):
-    return f'{newObjPK}##'
+    return base62.encode(newObjPK)
+    # return f'{newObjPK}##'
