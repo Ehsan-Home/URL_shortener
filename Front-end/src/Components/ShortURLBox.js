@@ -1,7 +1,7 @@
-import { Button, Card, Col, Row, Input, Typography, message } from "antd";
+import { Button, Card, Input, Typography, message } from "antd";
 import "../Styles/Styles.css";
 
-const { Text, Title } = Typography;
+const { Title } = Typography;
 
 const ShortURLBox = ({ shortURL }) => {
   console.log("unique key in shortURLBox", shortURL);
