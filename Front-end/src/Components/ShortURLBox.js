@@ -4,8 +4,6 @@ import "../Styles/Styles.css";
 const { Title } = Typography;
 
 const ShortURLBox = ({ shortURL }) => {
-  console.log("unique key in shortURLBox", shortURL);
-
   const [messageApi, contextHolder] = message.useMessage();
   const onCopyClicked = () => {
     navigator.clipboard.writeText(shortURL);
