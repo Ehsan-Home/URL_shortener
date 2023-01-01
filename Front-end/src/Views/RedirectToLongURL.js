@@ -2,13 +2,15 @@ import { Col, Row, Spin } from "antd";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import fetchLongURL from "../Network/FetchLongURL";
+import ErrorBox from "./ErrorBox";
 
 const RedirectToLongURL = () => {
   const { key } = useParams();
   const [longURL, setLongURL] = useState();
+  const [fetchError, setFetchError] = useState();
 
   useEffect(() => {
-    fetchLongURL(key, setLongURL);
+    fetchLongURL(key, setLongURL, setFetchError);
   }, []);
 
   useEffect(() => {
@@ -17,7 +19,9 @@ const RedirectToLongURL = () => {
     }
   }, [longURL]);
 
-  return (
+  return fetchError ? (
+    <ErrorBox status={fetchError.status} message={fetchError.message} />
+  ) : (
     <Row justify="center" className="mt-4">
       <Spin tip="Redirecting" size="large" />
     </Row>
