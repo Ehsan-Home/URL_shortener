@@ -1,12 +1,15 @@
 import { Button, Card, Col, Divider, Form, Input, Typography } from "antd";
+import { useState } from "react";
 import URLRequest from "../Network/URLRequest";
 
 const { Title } = Typography;
 
 const TextInputBox = ({ setShortURL }) => {
   const [form] = Form.useForm();
+  const [loading, setLoading] = useState(false);
   const onFinish = (values) => {
-    URLRequest(values, setShortURL);
+    setLoading(true);
+    URLRequest(values, setShortURL, setLoading);
   };
 
   return (
@@ -25,7 +28,7 @@ const TextInputBox = ({ setShortURL }) => {
           <Input placeholder="Enter your URL" />
         </Form.Item>
         <Form.Item className="center">
-          <Button type="primary" htmlType="submit">
+          <Button type="primary" htmlType="submit" loading={loading}>
             Shorten
           </Button>
         </Form.Item>
