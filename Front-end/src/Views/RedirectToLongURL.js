@@ -18,7 +18,7 @@ const RedirectToLongURL = () => {
   }, [longURL]);
 
   return (
-    <Row justify="center">
+    <Row justify="center" className="mt-4">
       <Spin tip="Redirecting" size="large" />
     </Row>
   );
