@@ -1,4 +1,4 @@
-import { Button, Card, Input, Typography, message } from "antd";
+import { Button, Card, Input, Typography, message, Row } from "antd";
 import "../Styles/Styles.css";
 
 const { Title } = Typography;
@@ -9,22 +9,18 @@ const ShortURLBox = ({ shortURL }) => {
     navigator.clipboard.writeText(shortURL);
     messageApi.info("URL copied");
   };
+
   return (
     <>
       {contextHolder}
       <Card>
         <Title level={5}>Shorten URL</Title>
-        <Input.Group compact>
-          <Input
-            value={shortURL}
-            style={{
-              width: "calc(100% - 80px)",
-            }}
-          />
+        <Input value={shortURL} />
+        <Row justify="center" className="mt-1">
           <Button type="primary" onClick={onCopyClicked}>
-            Copy
+            Copy link
           </Button>
-        </Input.Group>
+        </Row>
       </Card>
     </>
   );
