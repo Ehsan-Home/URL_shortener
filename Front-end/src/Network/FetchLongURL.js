@@ -10,7 +10,7 @@ const fetchLongURL = (key, setLongURL, setFetchError) => {
 };
 
 const handleError = (error, setFetchError) => {
-  if (error.response.status == 404) {
+  if (error.response.status === 404) {
     setFetchError({
       status: 404,
       message: "The page cannot be found.",

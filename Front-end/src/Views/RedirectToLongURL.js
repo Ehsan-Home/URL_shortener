@@ -1,4 +1,4 @@
-import { Col, Row, Spin } from "antd";
+import { Row, Spin } from "antd";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import fetchLongURL from "../Network/FetchLongURL";
@@ -11,7 +11,7 @@ const RedirectToLongURL = () => {
 
   useEffect(() => {
     fetchLongURL(key, setLongURL, setFetchError);
-  }, []);
+  }, [key]);
 
   useEffect(() => {
     if (longURL) {

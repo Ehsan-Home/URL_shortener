@@ -1,4 +1,4 @@
-import { Button, Card, Row, Typography } from "antd";
+import { Card, Row, Typography } from "antd";
 import { Link } from "react-router-dom";
 
 const { Title, Paragraph } = Typography;
