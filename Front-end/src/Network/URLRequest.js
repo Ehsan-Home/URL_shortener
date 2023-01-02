@@ -12,6 +12,7 @@ const URLRequest = (data, setUniqueKey, setLoading, api) => {
       setUniqueKey("localhost:3000/" + uniqueKey);
     })
     .catch((error) => {
+      setUniqueKey(null);
       console.log("error", error);
       setLoading(false);
 
