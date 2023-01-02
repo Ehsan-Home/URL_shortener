@@ -1,6 +1,7 @@
+import showErrorNotif from "../Components/ErrorNotification";
 import Network from "./Setup";
 
-const URLRequest = (data, setUniqueKey, setLoading) => {
+const URLRequest = (data, setUniqueKey, setLoading, api) => {
   Network.post("url/", data)
     .then((response) => {
       setLoading(false);
@@ -11,9 +12,14 @@ const URLRequest = (data, setUniqueKey, setLoading) => {
       setUniqueKey("localhost:3000/" + uniqueKey);
     })
     .catch((error) => {
+      console.log("error", error);
       setLoading(false);
-      console.log("error from url request" + error);
+
+      showErrorNotif(
+        error.response.status,
+        error.response.data["long_url"],
+        api
+      );
     });
 };
-
 export default URLRequest;

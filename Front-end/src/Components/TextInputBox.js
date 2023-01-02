@@ -1,4 +1,4 @@
-import { Button, Card, Form, Input, Typography } from "antd";
+import { Button, Card, Form, Input, notification, Typography } from "antd";
 import { useState } from "react";
 import URLRequest from "../Network/URLRequest";
 
@@ -7,13 +7,15 @@ const { Title } = Typography;
 const TextInputBox = ({ setShortURL }) => {
   const [form] = Form.useForm();
   const [loading, setLoading] = useState(false);
+  const [api, contextHolder] = notification.useNotification();
   const onFinish = (values) => {
     setLoading(true);
-    URLRequest(values, setShortURL, setLoading);
+    URLRequest(values, setShortURL, setLoading, api);
   };
 
   return (
     <Card>
+      {contextHolder}
       <Title level={5}>Long URL</Title>
       <Form form={form} layout="vertical" onFinish={onFinish}>
         <Form.Item
