@@ -13,7 +13,7 @@ const URLRequest = (data, setUniqueKey, setLoading, api) => {
     })
     .catch((error) => {
       setUniqueKey(null);
-      console.log("error", error);
+      // console.log("error", error);
       setLoading(false);
 
       showErrorNotif(
