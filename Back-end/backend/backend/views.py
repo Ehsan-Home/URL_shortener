@@ -31,6 +31,7 @@ def url(request):
             urlSerializer.save()
             return Response(urlSerializer.data, status=status.HTTP_201_CREATED)
         else:
+            print(urlSerializer.errors)
             return Response(urlSerializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
