@@ -1,15 +1,20 @@
 services:
   back-end:
-    build: ./back-end
+    build:
+      context: ./
+      dockerfile: ./back-end/Dockerfile
     ports:
       - "8000:8000"
     volumes:
-      - ./back-end:/back-end
+      - ./back-end:/project/back-end
     command: bash -c "cd backend && python manage.py runserver 0.0.0.0:8000"
-  
+
   front-end:
-    build: ./front-end
+    build:
+      context: ./
+      dockerfile: ./front-end/Dockerfile
     ports:
       - "3000:3000"
     volumes:
-      - ./front-end:/front-end
+      - ./front-end:/project/front-end
+    command: bash -c "npm start"
