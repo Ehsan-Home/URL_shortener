@@ -25,7 +25,7 @@ You can find the demo of the app in this [YouTube video](https://youtu.be/Wd2L4f
 ## Methodology
 
 Each long url requires a unique key associated to it.  
-**Q**: The natural question is how we can generate this key and make sure it is unique?
+**Q**: The natural question is how we can generate this key and make sure it is unique?  
 **A**: When a pair of (long url,short url) is added to the db, a unique identifier named as `id` is assigned to the entry. `id` is also a default primary key. We can leverage this value to generate the unique key for each long url.
 
 To generate the unique key, we can use [Base62](https://en.wikipedia.org/wiki/Base62). As you may know, `+` and `/` are reserved characters in URL. Base62 is considered as a safe way to generate unique key for short URL since Base62 doesn't produce `+` or `/`.
