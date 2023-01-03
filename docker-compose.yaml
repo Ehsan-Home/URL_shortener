@@ -17,4 +17,4 @@ services:
       - "3000:3000"
     volumes:
       - ./front-end:/project/front-end
-    command: bash -c "npm start"
+    command: bash -c "npm install && npm start"
