@@ -72,7 +72,7 @@ Once the docker server is running, you can simply enter the command below to `bu
 docker-compose up --build
 ```
 
-**Note**: Running front-end server can take up to 5 mins. The reasons are mainly:
+**Note**: Running front-end server can take up to 10 mins. The reasons are mainly:
 
 1. `create-react-app` is a popular environment for setting up React apps. Desipte the popularity, runnning `dev` server using `create-react-app` can be slow.
 2. The `dev` version is being deployed to the docker. As a future work, instead of `dev`, we can deploy the `build` version which is faster and lightweight. Then, we can setup a `nginx` docker image for serving the front-end `build` release.
