@@ -8,10 +8,10 @@ Django requires the developer to follow **MVC** architecture.
 
 ### APIs
 
-1. Assign a short URL to a long URL (POST): This API is used to return an unique short URL corresponding to a long address. If the long address exists in the DB, the API simply returns the unique short address. Otherwise, the back-end creates a unique short address associated to the long URL and returns it.
+1. Assign a short URL to a long URL (POST): This API is used to return an unique short URL corresponding to a long address. If the long address exists in the database, the API simply returns the unique short address. Otherwise, the back-end creates a unique short address associated to the long URL and returns it.
 2. Get the long URL of a specific short URL: returns the long URL associated the the short URL, not found, otherwise.
 
-## DB
+## Database
 
 I've used sqllite3 for the sake of simplicity.
 
