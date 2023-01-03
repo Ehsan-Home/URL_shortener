@@ -26,3 +26,10 @@ id = models.BigAutoField(primary_key=True)
 long_url = models.URLField(max_length=2083)
 unique_key = models.CharField(max_length=20)
 ```
+
+## Dependenices
+
+1. Django
+2. Djangorestframework
+3. [python-decouple](https://pypi.org/project/python-decouple/): for hiding SECRET_KEY
+4. [pybase62](https://github.com/suminb/base62): for calculating base62.
