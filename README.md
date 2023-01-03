@@ -12,6 +12,18 @@ DB: Sqllite3
 <br>
 Deployment: Docker
 
+## Demo
+
+You can find the demo of the app in this [YouTube video](https://youtu.be/Wd2L4fkAs3I).
+
+## Assumptions
+
+1. Django secert key
+2. Dev version of front-end
+3. Uploading sqllite into GitHub
+
+## Methodology
+
 ## How to run the app?
 
 ### Prerequisite
@@ -63,3 +75,24 @@ I've used Django-Rest-Framework as the back-end web framework for developing the
 ### Architecture
 
 Django requires the developer to follow **MVC** architecture.
+
+### APIs
+
+1. Assign a short URL to a long URL (POST): This API is used to return an unique short URL corresponding to a long address. If the long address exists in the DB, the API simply returns the unique short address. Otherwise, the back-end creates a unique short address associated to the long URL and returns it.
+2. Get the long URL of a specific short URL: returns the long URL associated the the short URL, not found, otherwise.
+
+## DB
+
+I've used sqllite3 for the sake of simplicity.
+
+### Schema
+
+| id   | URL      | unique key |
+| ---- | -------- | ---------- |
+| _PK_ | required | required   |
+
+```Python
+id = models.BigAutoField(primary_key=True)
+long_url = models.URLField(max_length=2083)
+unique_key = models.CharField(max_length=20)
+```
