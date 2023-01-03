@@ -18,9 +18,9 @@ You can find the demo of the app in this [YouTube video](https://youtu.be/Wd2L4f
 
 ## Assumptions
 
-1. Django secert key
-2. Dev version of front-end
-3. Uploading sqllite into GitHub
+1. Django contains a secret key that usually is hidden using `.env` variables. Each developer in the team should individually set up `.env` file and **MUST NOT** upload it to the GitHub. However, for this project and for the simplicity, this secret key is exposed to GitHub. Therefore, you can run the server.
+2. To deploy front-end, we should deploy the `build` version since it is faster and lighter. I've assumed I can deploy the front-end using `dev` resources.
+3. The DB should not be uploaded to GitHub as it might contain users' sensitive information. However, this project doesn't contain any sensitive data (only long url and short url is stored). Threfore, we can assume that we can upload DB to GitHub.
 
 ## Methodology
 
@@ -55,7 +55,7 @@ The largest number with the size of 52 chars in base62 can be approximately calc
 62 ^ 52 ~= 3.67 x 10^78
 ```
 
-As we can observe, this is a very big number (much larger than the number of atoms in the observable universe). Therefore, we can make sure the database will have enough space for storing the entries as well as the SMS doesn't exceed more than 67 chars.
+As we can observe, this is a very big number (much larger than the number of atoms in the observable universe). Therefore, the short URL can be expanded up to 52 characters as well as the number of generated short URLs can be up to `3.67 * 10^78`.
 
 ## How to run the app?
 
