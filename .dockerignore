@@ -1,4 +1,29 @@
 .git/
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+front-end/.pnpm-store
+front-end/node_modules/
+.pnp
+**/.pnp.js
+
+# testing
+front-end/coverage/
+
+# production
+front-end/build/
+
+# misc
+**/.DS_Store
+**/.env.local
+**/.env.development.local
+**/.env.test.local
+**/.env.production.local
+
+**/npm-debug.log*
+**/yarn-debug.log*
+**/yarn-error.log*
+
 # Created by https://www.toptal.com/developers/gitignore/api/django
 # Edit at https://www.toptal.com/developers/gitignore?templates=django
 
@@ -149,7 +174,7 @@
 **/.ropeproject
 
 # mkdocs documentation
-site
+back-end/site
 
 # mypy
 **/.mypy_cache/
