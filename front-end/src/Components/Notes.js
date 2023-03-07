@@ -4,10 +4,8 @@ const Notes = () => {
   return (
     <Card>
       <ul>
-        <li>
-          My name is Ehsan Ghasaei and this is the assessment for full-stack
-          software developer role @ Pani Energy
-        </li>
+        <li>This is a URL shortener service</li>
+        <li>URL shortener service improves the click rate by 40%!</li>
       </ul>
     </Card>
   );
