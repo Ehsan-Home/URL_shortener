@@ -14,7 +14,7 @@ Deployment: Docker
 
 ## Demo
 
-You can find the demo of the app in this [YouTube video](https://youtu.be/Wd2L4fkAs3I).
+You can find the demo of the app in this [YouTube video](https://youtu.be/aIrZlY3LTQE).
 
 ## Assumptions
 
