@@ -2,7 +2,7 @@
 
 This is a URL_Shortener app.
 
-## Tech stack
+## Tech stack 👕
 
 Front-end: React, Ant-design
 <br>
