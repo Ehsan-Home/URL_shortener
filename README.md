@@ -12,7 +12,7 @@ Database: Sqllite3
 <br>
 Deployment: Docker
 
-## Demo
+## Demo 🎥
 
 You can find the demo of the app in this [YouTube video](https://youtu.be/aIrZlY3LTQE).
 
