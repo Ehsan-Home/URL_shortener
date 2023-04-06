@@ -16,7 +16,7 @@ Deployment: Docker
 
 You can find the demo of the app in this [YouTube video](https://youtu.be/aIrZlY3LTQE).
 
-## Assumptions
+## Assumptions ☁️
 
 1. Django contains a secret key that usually is hidden using `.env` variables. Each developer in the team should individually set up `.env` file and **MUST NOT** upload it to the GitHub. However, for this project and for the simplicity, this secret key is exposed to GitHub. Therefore, you can run the server.
 2. To deploy front-end, we should deploy the `build` version since it is faster and lighter. I've assumed I can deploy the front-end using `dev` resources.
