@@ -22,7 +22,7 @@ You can find the demo of the app in this [YouTube video](https://youtu.be/aIrZlY
 2. To deploy front-end, we should deploy the `build` version since it is faster and lighter. I've assumed I can deploy the front-end using `dev` resources.
 3. The database should not be uploaded to GitHub as it might contain users' sensitive information. However, this project doesn't contain any sensitive data (only long url and short url is stored). Threfore, we can assume that we can upload database to GitHub.
 
-## Methodology
+## Methodology 🔤
 
 Each long url requires a unique key associated to it.  
 **Q**: The natural question is how we can generate this key and make sure it is unique?  
