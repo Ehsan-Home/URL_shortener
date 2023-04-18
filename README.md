@@ -42,7 +42,7 @@ Each entry in the database is somehow a tuple.
 entry = (id, long_url, unique_key)
 ```
 
-## Analysis
+## Analysis 📈
 
 let's see how many urls the database can store using the base62 approach.
 
