@@ -57,7 +57,7 @@ The largest number with the size of 52 chars in base62 can be approximately calc
 
 As we can observe, this is a very big number (much larger than the number of atoms in the observable universe). Therefore, the short URL can be expanded up to 52 characters as well as the number of generated short URLs can be up to `3.67 * 10^78`.
 
-## How to run the app?
+## How to run the app? 🤨
 
 ### Prerequisite
 
