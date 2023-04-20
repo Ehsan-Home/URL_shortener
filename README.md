@@ -81,6 +81,6 @@ docker-compose up --build
 
 The description of the front-end is avaialable in `front-end` directory
 
-## Back-end && Database
+## Back-end && Database 💽
 
 The description of the back-end and database is avaialable in `back-end` directory
