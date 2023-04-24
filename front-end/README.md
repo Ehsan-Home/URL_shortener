@@ -2,7 +2,7 @@
 
 I've leveraged [React](https://reactjs.org/) to develope the front-end application.
 
-### Architecture
+### Architecture 🧱
 
 The front-end follows **MVC** architecture. This architecture seperates Model from View from Controller for easier maintenance.
 
