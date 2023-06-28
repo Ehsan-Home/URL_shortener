@@ -1,8 +1,8 @@
-# URL_shortener 🖇️
+# URL_shortener
 
 This is a URL_Shortener app.
 
-## Tech stack 👕
+## Tech stack
 
 Front-end: React, Ant-design
 <br>
@@ -12,17 +12,17 @@ Database: Sqllite3
 <br>
 Deployment: Docker
 
-## Demo 🎥
+## Demo
 
 You can find the demo of the app in this [YouTube video](https://youtu.be/aIrZlY3LTQE).
 
-## Assumptions ☁️
+## Assumptions
 
 1. Django contains a secret key that usually is hidden using `.env` variables. Each developer in the team should individually set up `.env` file and **MUST NOT** upload it to the GitHub. However, for this project and for the simplicity, this secret key is exposed to GitHub. Therefore, you can run the server.
 2. To deploy front-end, we should deploy the `build` version since it is faster and lighter. I've assumed I can deploy the front-end using `dev` resources.
 3. The database should not be uploaded to GitHub as it might contain users' sensitive information. However, this project doesn't contain any sensitive data (only long url and short url is stored). Threfore, we can assume that we can upload database to GitHub.
 
-## Methodology 🔤
+## Methodology
 
 Each long url requires a unique key associated to it.  
 **Q**: The natural question is how we can generate this key and make sure it is unique?  
@@ -42,7 +42,7 @@ Each entry in the database is somehow a tuple.
 entry = (id, long_url, unique_key)
 ```
 
-## Analysis 📈
+## Analysis
 
 let's see how many urls the database can store using the base62 approach.
 
@@ -57,7 +57,7 @@ The largest number with the size of 52 chars in base62 can be approximately calc
 
 As we can observe, this is a very big number (much larger than the number of atoms in the observable universe). Therefore, the short URL can be expanded up to 52 characters as well as the number of generated short URLs can be up to `3.67 * 10^78`.
 
-## How to run the app? 🤨
+## How to run the app?
 
 ### Prerequisite
 
@@ -77,11 +77,11 @@ docker-compose up --build
 1. `create-react-app` is a popular environment for setting up React apps. Desipte the popularity, runnning `dev` server using `create-react-app` can be slow.
 2. The `dev` version is being deployed to the docker. As a future work, instead of `dev`, we can deploy the `build` version which is faster and lightweight. Then, we can setup a `nginx` docker image for serving the front-end `build` release.
 
-## Front-end 🖼️
+## Front-end
 
 I've leveraged [React](https://reactjs.org/) to develope the front-end application.
 
-### Architecture 🧱
+### Architecture
 
 The front-end follows **MVC** architecture. This architecture seperates Model from View from Controller for easier maintenance.
 
