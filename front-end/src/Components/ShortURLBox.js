@@ -18,7 +18,7 @@ const ShortURLBox = ({ shortURL }) => {
         <Input value={shortURL} />
         <Row justify="center" className="mt-1">
           <Button type="primary" onClick={onCopyClicked}>
-            Copy link
+            Copy Link
           </Button>
         </Row>
       </Card>

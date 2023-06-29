@@ -5,7 +5,7 @@ const { Title } = Typography;
 const Header = () => {
   return (
     <Row justify="center">
-      <Title>URL Shortener</Title>
+      <Title>Penni URL</Title>
     </Row>
   );
 };
