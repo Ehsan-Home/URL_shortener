@@ -2,8 +2,6 @@ import { Button, Card, Form, Input, notification, Typography } from "antd";
 import { useState } from "react";
 import URLRequest from "../Network/URLRequest";
 
-const { Title } = Typography;
-
 const TextInputBox = ({ setShortURL }) => {
   const [form] = Form.useForm();
   const [loading, setLoading] = useState(false);
@@ -14,9 +12,8 @@ const TextInputBox = ({ setShortURL }) => {
   };
 
   return (
-    <Card>
+    <>
       {contextHolder}
-      <Title level={5}>Long URL</Title>
       <Form form={form} layout="vertical" onFinish={onFinish}>
         <Form.Item
           name="url"
@@ -31,11 +28,11 @@ const TextInputBox = ({ setShortURL }) => {
         </Form.Item>
         <Form.Item className="center">
           <Button type="primary" htmlType="submit" loading={loading}>
-            Shorten
+            Shorten URL
           </Button>
         </Form.Item>
       </Form>
-    </Card>
+    </>
   );
 };
 

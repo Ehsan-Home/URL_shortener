@@ -1,7 +1,8 @@
 import { Button, Card, Input, Typography, message, Row } from "antd";
 import "../Styles/Styles.css";
+import { CopyOutlined } from "@ant-design/icons";
 
-const { Title } = Typography;
+const { Title, Text } = Typography;
 
 const ShortURLBox = ({ shortURL }) => {
   const [messageApi, contextHolder] = message.useMessage();
@@ -13,15 +14,15 @@ const ShortURLBox = ({ shortURL }) => {
   return (
     <>
       {contextHolder}
-      <Card>
-        <Title level={5}>Shorten URL</Title>
-        <Input value={shortURL} />
-        <Row justify="center" className="mt-1">
-          <Button type="primary" onClick={onCopyClicked}>
-            Copy Link
+      <Input
+        value={shortURL}
+        addonAfter={
+          <Button type="text" icon={<CopyOutlined />} onClick={onCopyClicked}>
+            Copy
           </Button>
-        </Row>
-      </Card>
+        }
+        readOnly
+      />
     </>
   );
 };
