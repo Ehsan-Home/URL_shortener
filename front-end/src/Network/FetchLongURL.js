@@ -18,7 +18,7 @@ const handleError = (error, setFetchError) => {
   } else {
     setFetchError({
       status: 500,
-      message: "Somthing strange happend. Please try again later.",
+      message: "Something strange happened. Please try again later.",
     });
   }
   //   console.error("error status " + JSON.stringify(error));
