@@ -2,10 +2,10 @@ import React from "react";
 import { Row, Typography } from "antd";
 const { Title } = Typography;
 
-const Header = () => {
+const Header = ({ title }) => {
   return (
     <Row justify="center">
-      <Title>Penni URL</Title>
+      <Title>{title}</Title>
     </Row>
   );
 };

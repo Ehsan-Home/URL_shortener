@@ -1,4 +1,4 @@
-import { Card, Col, Row } from "antd";
+import { Card, Col, Divider, Row } from "antd";
 import { useState } from "react";
 import Header from "../Components/Header";
 import Notes from "../Components/Notes";
@@ -10,10 +10,9 @@ const Home = () => {
   const [shortURL, setShortURL] = useState();
   return (
     <div className="background">
-      <MaliciousLinksAlert />
       <Row justify="center" gutter={[0, 24]}>
         <Col xs={24} sm={24} md={18} lg={20} xl={20}>
-          <Header />
+          <Header title="Penni URL" />
         </Col>
         <Col xs={24} sm={24} md={18} lg={20} xl={20}>
           <>
@@ -21,9 +20,7 @@ const Home = () => {
             {shortURL && <ShortURLBox shortURL={shortURL} />}
           </>
         </Col>
-        {/* <Col xs={24} sm={24} md={18} lg={20} xl={20}>
-          <Notes />
-        </Col> */}
+        <Divider />
       </Row>
     </div>
   );
