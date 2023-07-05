@@ -17,3 +17,8 @@ body {
 .w-80 {
     width: 80%;
 }
+
+.m-20-px {
+    margin: 20px;
+    color: blue;
+}
