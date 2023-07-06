@@ -2,17 +2,24 @@ import { Button, Form, Input, notification } from "antd";
 import { useEffect, useState } from "react";
 import fetchLongURL from "../Network/FetchLongURL";
 import showErrorNotif from "./ErrorNotification";
+import { isShortenedURLValid } from "../lib/regexes";
+import { separateKeyFromShortURL } from "../lib/shortURL";
 
-const ShortenedURLInput = ({ setLongURL, setShortURL }) => {
+const ShortenedURLInput = ({ setLongURL, setShortURLKey }) => {
   const [form] = Form.useForm();
   const [loading, setLoading] = useState(false);
   const [api, contextHolder] = notification.useNotification();
   const [fetchError, setFetchError] = useState();
 
   const onFinish = (values) => {
-    setShortURL(values["short_url"]);
+    setShortURLKey(separateKeyFromShortURL(values["short_url"]));
     setLoading(true);
-    fetchLongURL(values["short_url"], setLongURL, setFetchError, setLoading);
+    fetchLongURL(
+      separateKeyFromShortURL(values["short_url"]),
+      setLongURL,
+      setFetchError,
+      setLoading
+    );
   };
 
   useEffect(() => {
@@ -20,10 +27,10 @@ const ShortenedURLInput = ({ setLongURL, setShortURL }) => {
   }, [fetchError, api]);
 
   const validateInput = (_, value) => {
-    if (value !== "hello") {
-      return Promise.reject(new Error("the value is not valid"));
+    if (isShortenedURLValid(value)) {
+      return Promise.resolve();
     }
-    return Promise.resolve();
+    return Promise.reject(new Error("the value is not valid"));
   };
 
   return (
