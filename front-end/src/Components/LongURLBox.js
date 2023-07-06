@@ -11,7 +11,7 @@ const LongURLBox = ({ shortURL, longURL }) => {
     <Card className="center">
       <h1>{shortURL}</h1>
       <Text>redirects to</Text>
-      <h1>{longURL}</h1>
+      <h1 className="word-break">{longURL}</h1>
     </Card>
   );
 };

@@ -22,3 +22,7 @@ body {
     margin: 20px;
     color: blue;
 }
+
+.word-break {
+    word-wrap: break-word;
+}
