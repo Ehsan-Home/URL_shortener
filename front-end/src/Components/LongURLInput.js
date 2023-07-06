@@ -1,32 +1,46 @@
-import { Button, Form, Input } from "antd";
-import { useState } from "react";
+import { Button, Form, Input, notification } from "antd";
+import { useEffect, useState } from "react";
+import fetchLongURL from "../Network/FetchLongURL";
+import showErrorNotif from "./ErrorNotification";
 
-const ShortenedURLInput = () => {
+const ShortenedURLInput = ({ setLongURL, setShortURL }) => {
   const [form] = Form.useForm();
   const [loading, setLoading] = useState(false);
-  const onFinish = () => {
-    console.log("finish clicked");
+  const [api, contextHolder] = notification.useNotification();
+  const [fetchError, setFetchError] = useState();
+
+  const onFinish = (values) => {
+    setShortURL(values["short_url"]);
+    setLoading(true);
+    fetchLongURL(values["short_url"], setLongURL, setFetchError, setLoading);
   };
 
+  useEffect(() => {
+    fetchError && showErrorNotif(fetchError.status, fetchError.message, api);
+  }, [fetchError, api]);
+
   return (
-    <Form form={form} layout="vertical" onFinish={onFinish}>
-      <Form.Item
-        name="long_url"
-        rules={[
-          {
-            required: true,
-            message: "Please enter shortened URL",
-          },
-        ]}
-      >
-        <Input placeholder="Enter shortened URL" />
-      </Form.Item>
-      <Form.Item className="center">
-        <Button type="primary" htmlType="submit" loading={loading}>
-          Preview
-        </Button>
-      </Form.Item>
-    </Form>
+    <>
+      {contextHolder}
+      <Form form={form} layout="vertical" onFinish={onFinish}>
+        <Form.Item
+          name="short_url"
+          rules={[
+            {
+              required: true,
+              message: "Please enter shortened URL",
+            },
+          ]}
+        >
+          <Input placeholder="Enter shortened URL" />
+        </Form.Item>
+        <Form.Item className="center">
+          <Button type="primary" htmlType="submit" loading={loading}>
+            Preview
+          </Button>
+        </Form.Item>
+      </Form>
+    </>
   );
 };
 

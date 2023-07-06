@@ -3,12 +3,15 @@ import "../Styles/Styles.css";
 
 const { Text } = Typography;
 
-const LongURLBox = () => {
+const LongURLBox = ({ shortURL, longURL }) => {
+  if (!shortURL || !longURL) {
+    return null;
+  }
   return (
     <Card className="center">
-      <h1>www.penniurl.com/21323</h1>
+      <h1>{shortURL}</h1>
       <Text>redirects to</Text>
-      <h1>www.google.com/fsdlfjsd</h1>
+      <h1>{longURL}</h1>
     </Card>
   );
 };
