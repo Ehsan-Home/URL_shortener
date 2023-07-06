@@ -9,7 +9,7 @@ const LongURLBox = ({ shortURLKey, longURL }) => {
   }
   return (
     <Card className="center">
-      <h1>{shortURLKey}</h1>
+      <h1>http://localhost:3000/{shortURLKey}</h1>
       <Text>redirects to</Text>
       <h1 className="word-break">{longURL}</h1>
     </Card>
