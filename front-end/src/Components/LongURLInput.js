@@ -19,6 +19,13 @@ const ShortenedURLInput = ({ setLongURL, setShortURL }) => {
     fetchError && showErrorNotif(fetchError.status, fetchError.message, api);
   }, [fetchError, api]);
 
+  const validateInput = (_, value) => {
+    if (value !== "hello") {
+      return Promise.reject(new Error("the value is not valid"));
+    }
+    return Promise.resolve();
+  };
+
   return (
     <>
       {contextHolder}
@@ -26,9 +33,12 @@ const ShortenedURLInput = ({ setLongURL, setShortURL }) => {
         <Form.Item
           name="short_url"
           rules={[
+            // {
+            //   required: true,
+            //   message: "Please enter shortened URL",
+            // },
             {
-              required: true,
-              message: "Please enter shortened URL",
+              validator: validateInput,
             },
           ]}
         >
