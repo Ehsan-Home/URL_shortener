@@ -6,12 +6,13 @@ from rest_framework import status
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.decorators import api_view
 import base62
+from django.shortcuts import get_object_or_404
 
 
 @csrf_exempt
-@api_view(['POST'])
+@api_view(["POST"])
 def url(request):
-    newObjURL = request.data['url']
+    newObjURL = request.data["url"]
 
     if URL.objects.filter(long_url=newObjURL).exists():
         obj = URL.objects.get(long_url=newObjURL)
@@ -23,8 +24,11 @@ def url(request):
         newObjPK = lastObj.pk + 1
         newObjUniquKey = PKToBase62(newObjPK)
 
-        newObjDict = {'id': newObjPK, 'long_url': newObjURL,
-                      'unique_key': newObjUniquKey}
+        newObjDict = {
+            "id": newObjPK,
+            "long_url": newObjURL,
+            "unique_key": newObjUniquKey,
+        }
 
         urlSerializer = URLSerializer(data=newObjDict)
         if urlSerializer.is_valid():
@@ -36,8 +40,8 @@ def url(request):
 
 
 @csrf_exempt
-@api_view(['GET'])
-def getShortURL(request, short_url_key):
+@api_view(["GET"])
+def getLongURL(request, short_url_key):
     try:
         obj = URL.objects.get(unique_key=short_url_key)
     except URL.DoesNotExist:
