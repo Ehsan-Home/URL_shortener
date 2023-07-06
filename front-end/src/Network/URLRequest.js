@@ -9,7 +9,7 @@ const URLRequest = (data, setUniqueKey, setLoading, api) => {
       // console.log("resInStr.unique_key: ", data["unique_key"]);
       const uniqueKey = data["unique_key"];
       // console.log("unique key", uniqueKey);
-      setUniqueKey("localhost:3000/" + uniqueKey);
+      setUniqueKey("http://localhost:3000/" + uniqueKey);
     })
     .catch((error) => {
       setUniqueKey(null);

@@ -1,10 +1,8 @@
-import { Card, Col, Divider, Row } from "antd";
+import { Col, Divider, Row } from "antd";
 import { useState } from "react";
 import Header from "../Components/Header";
-import Notes from "../Components/Notes";
 import ShortURLBox from "../Components/ShortURLBox";
 import TextInputBox from "../Components/TextInputBox";
-import MaliciousLinksAlert from "../Components/MaliciousLinks";
 
 const Home = () => {
   const [shortURL, setShortURL] = useState();
