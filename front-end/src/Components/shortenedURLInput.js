@@ -10,6 +10,7 @@ const ShortenedURLInput = ({ setLongURL, setShortURLKey }) => {
   const [loading, setLoading] = useState(false);
   const [api, contextHolder] = notification.useNotification();
   const [fetchError, setFetchError] = useState();
+  const [disabled, setDisabled] = useState(true);
 
   const onFinish = (values) => {
     setShortURLKey(separateKeyFromShortURL(values["short_url"]));
@@ -28,9 +29,15 @@ const ShortenedURLInput = ({ setLongURL, setShortURLKey }) => {
 
   const validateInput = (_, value) => {
     if (isShortenedURLValid(value)) {
+      setDisabled(false);
       return Promise.resolve();
     }
-    return Promise.reject(new Error("the value is not valid"));
+    setDisabled(true);
+    return Promise.reject(
+      new Error(
+        "This is not a valid penni url.Please note that http should be used at the front."
+      )
+    );
   };
 
   return (
@@ -52,7 +59,12 @@ const ShortenedURLInput = ({ setLongURL, setShortURLKey }) => {
           <Input placeholder="Enter shortened URL" />
         </Form.Item>
         <Form.Item className="center">
-          <Button type="primary" htmlType="submit" loading={loading}>
+          <Button
+            type="primary"
+            htmlType="submit"
+            loading={loading}
+            disabled={disabled}
+          >
             Preview
           </Button>
         </Form.Item>

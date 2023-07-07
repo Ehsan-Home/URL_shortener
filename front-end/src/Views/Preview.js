@@ -1,6 +1,6 @@
 import { Col, Row } from "antd";
 import Header from "../Components/Header";
-import ShortenedURLInput from "../Components/LongURLInput";
+import ShortenedURLInput from "../Components/shortenedURLInput";
 import LongURLBox from "../Components/LongURLBox";
 import { useState } from "react";
 
