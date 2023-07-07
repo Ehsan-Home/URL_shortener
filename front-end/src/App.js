@@ -6,10 +6,12 @@ import RedirectToLongURL from "./Views/RedirectToLongURL";
 import { ConfigProvider } from "antd";
 import MaliciousLinksAlert from "./Components/MaliciousLinks";
 import Preview from "./Views/Preview";
+import Navbar from "./Components/Navbar";
 
 function App() {
   return (
     <ConfigProvider componentSize="large">
+      <Navbar />
       <MaliciousLinksAlert />
       <Routes>
         <Route path="/" element={<Home />} />
